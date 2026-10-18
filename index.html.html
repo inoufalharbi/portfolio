@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nouf Alharbi – Portfolio</title>
+
+<script>
+const SITE={
+ name:{en:"Nouf Alharbi",ar:"نوف الحربي"},
+ words:{
+   en:["forecasts","decisions","insights"],
+   ar:["توقعات","قرارات","حلول"]},
+ intro:{
+   en:"Data analyst with a Computer Science background. I turn raw data into clear insights, forecasts, and dashboards that teams can act on.",
+   ar:"محللة بيانات من خلفية علوم حاسب. أحوّل البيانات الخام إلى توقعات ولوحات ونتائج واضحة تساعد الفرق تقرر بثقة."},
+ about:{
+   en:"Computer Science graduate with hands-on experience in data analysis through academic and bootcamp projects. Skilled in Python, Pandas, SQL, and Excel for collecting, cleaning, validating, and analyzing structured data to support reporting and decision-making. Experienced in applying machine learning and deep learning techniques to build predictive models and data-driven applications, with a strong interest in growing as a Data Analyst.",
+   ar:"خريجة علوم حاسب، وعندي خبرة عملية في تحليل البيانات من خلال مشاريع جامعية ومعسكرات تدريبية. أشتغل على Python وPandas وSQL وExcel في جمع البيانات وتنظيفها والتحقق منها وتحليلها عشان تدعم التقارير واتخاذ القرار. طبّقت تقنيات تعلم الآلة والتعلم العميق في بناء نماذج تنبؤية وتطبيقات مبنية على البيانات، وطموحي أكمل طريقي كمحللة بيانات."},
+ email:"ialharbinouf.22@gmail.com",
+ linkedin:"https://linkedin.com/in/nouf-alharbi-cs",
+ github:"https://github.com/inoufalharbi",
+ location:{en:"Saudi Arabia",ar:"السعودية"},
+ contactLine:{
+   en:"Open to Data Analyst opportunities and collaboration. Send me a message and I'll get back to you soon.",
+   ar:"أبحث عن فرصة كمحللة بيانات وأرحب بأي تعاون. راسلني وأرد عليك بأقرب وقت."},
+ nav:{
+   projects:{en:"Projects",ar:"المشاريع"},
+   skills:{en:"Skills",ar:"المهارات"},
+   education:{en:"Education",ar:"التعليم"},
+   certificates:{en:"Certificates",ar:"الشهادات"},
+   training:{en:"Training",ar:"التدريب"},
+   contact:{en:"Contact",ar:"التواصل"}},
+ ui:{
+   seeWork:{en:"See my work",ar:"تصفّح أعمالي"},
+   contactMe:{en:"Contact me",ar:"تواصل معي"},
+   aboutTitle:{en:"About",ar:"نبذة عني"},
+   projectsTitle:{en:"Projects",ar:"المشاريع"},
+   projectsSub:{en:"Tap a project to see the problem, what I built, and the results.",
+                ar:"اضغط على أي مشروع وشوف المشكلة، وإيش بنيت، والنتائج."},
+   skillsTitle:{en:"Skills",ar:"المهارات"},
+   educationTitle:{en:"Education",ar:"التعليم"},
+   certificatesTitle:{en:"Certificates",ar:"الشهادات"},
+   trainingTitle:{en:"Training",ar:"التدريب"},
+   contactTitle:{en:"Let's work together",ar:"خلّنا نشتغل مع بعض"},
+   problemLabel:{en:"The problem",ar:"المشكلة"},
+   builtLabel:{en:"What I built",ar:"إيش بنيت"},
+   resultLabel:{en:"Result",ar:"النتيجة"},
+   takeawayLabel:{en:"Takeaway",ar:"أهم ما تعلمته"},
+   addShot:{en:"Add a screenshot",ar:"أضف صورة"},
+   viewDetails:{en:"View details",ar:"شاهد التفاصيل"},
+   close:{en:"Close",ar:"إغلاق"}},
+ skills:{
+   en:[
+    {t:"Data analysis",items:"Pandas, NumPy, Excel, OpenPyXL, Matplotlib"},
+    {t:"Machine learning & deep learning",items:"Scikit-learn, XGBoost, LightGBM, CatBoost, PyTorch"},    
+    {t:"Data & databases",items:"SQL, SQLite"},
+    {t:"Programming",items:"Python, Java"},
+    {t:"Backend & APIs",items:"FastAPI, REST APIs, SQLAlchemy"},
+    {t:"Tools",items:"Git, GitHub, Docker, Streamlit"}],
+   ar:[
+    {t:"تحليل البيانات",items:"Pandas, NumPy, Excel, OpenPyXL, Matplotlib"},
+    {t:"تعلم الآلة والتعلم العميق",items:"Scikit-learn, XGBoost, LightGBM, CatBoost, PyTorch"},    
+    {t:"البيانات وقواعد البيانات",items:"SQL, SQLite"},
+    {t:"البرمجة",items:"Python, Java"},
+    {t:"الباك إند وواجهات API",items:"FastAPI, REST APIs, SQLAlchemy"},
+    {t:"الأدوات",items:"Git, GitHub, Docker, Streamlit"}]},
+ education:{
+   en:[
+    {t:"B.Sc. Computer Science",s:"Taibah University · GPA 4.64 of 5, Second Honor",d:"08/2020 – 05/2025"}],
+   ar:[
+    {t:"بكالوريوس علوم الحاسب",s:"جامعة طيبة · معدل 4.64 من 5، مرتبة الشرف الثانية",d:"08/2020 – 05/2025"}]},
+ certificates:{
+   en:[
+    {t:"PCEP™: Certified Entry-Level Python Programmer",s:"Python Institute",d:"07/2026"}],
+   ar:[
+    {t:"PCEP™: شهادة مبرمج Python للمستوى المبتدئ",s:"Python Institute",d:"07/2026"}]},
+ training:{
+   en:[
+    {t:"Data Science Bootcamp",s:"WeCloudData · Saudi Digital Academy",d:"08/2026 – 10/2026"},
+    {t:"Software Development Bootcamp (Python)",s:"WeCloudData · Saudi Digital Academy",d:"05/2026 – 07/2026"}],
+   ar:[
+    {t:"معسكر علم البيانات",s:"WeCloudData · الأكاديمية السعودية الرقمية",d:"08/2026 – 10/2026"},
+    {t:"معسكر تطوير البرمجيات (Python)",s:"WeCloudData · الأكاديمية السعودية الرقمية",d:"05/2026 – 07/2026"}]},
+ projects:[
+ {color:"#4F7BD8",name:"MORROW",
+  tag:{en:"Retail demand forecasting and replenishment",
+       ar:"توقع الطلب في التجزئة ودعم قرارات إعادة التخزين"},
+  meta:{en:"Data Science Bootcamp · 08/2026 – 10/2026",
+        ar:"معسكر علم البيانات · 08/2026 – 10/2026"},
+  problem:{en:"Stores need to know how much of each product to stock. Wrong guesses mean empty shelves or wasted inventory — and demand behaves differently across product families.",
+           ar:"المتاجر لازم تعرف كم تخزّن من كل منتج. التقدير الغلط يعني رفوف فاضية أو مخزون زايد يتلف، والطلب يتصرف بشكل مختلف من فئة لأخرى."},
+  built:{
+    en:["Forecasting framework across 1,728 Store × Product-Family time series over a 15-day horizon",
+        "Classified demand into Regular, Irregular, and Intermittent patterns before modeling",
+        "Engineered temporal features (lags, rolling statistics, calendar, promotions) and compared six approaches: Seasonal Naive, XGBoost, LightGBM, tuned XGBoost, tuned LightGBM, and DeepAR",
+        "Interactive Streamlit app that translates forecasts into replenishment recommendations"],
+    ar:["إطار توقع يغطي 1,728 سلسلة زمنية (متجر × فئة منتج) لمدة 15 يوم قدام",
+        "صنّفت الطلب إلى منتظم وغير منتظم ومتقطع قبل ما أبدأ النمذجة",
+        "بنيت features زمنية (lags، إحصاءات متحركة، تقويم، عروض ترويجية) وقارنت ستة نماذج: Seasonal Naive، XGBoost، LightGBM، النسخ المضبوطة من XGBoost وLightGBM، وDeepAR",
+        "تطبيق Streamlit تفاعلي يحوّل التوقعات إلى توصيات لإعادة التخزين"]},
+  result:{
+    en:["DeepAR achieved the lowest RMSLE for Regular demand (0.3796) and Intermittent demand (0.5064)",
+        "Tuned XGBoost performed best for Irregular demand (0.5756), showing no single model wins across all patterns",
+        "DeepAR won 10 of 12 intermittent product families — supporting pattern-aware model selection"],
+    ar:["DeepAR كان الأفضل (أقل RMSLE) في الطلب المنتظم (0.3796) والمتقطع (0.5064)",
+        "XGBoost بعد الضبط كان الأفضل في الطلب غير المنتظم (0.5756)، يعني ما فيه نموذج واحد يفوز بكل الأنماط",
+        "DeepAR فاز في 10 من 12 فئة منتج متقطعة الطلب، وهذا يدعم اختيار النموذج حسب النمط"]},
+  stack:["Python","Pandas","XGBoost","LightGBM","DeepAR","Streamlit"],
+  links:[
+   {label:{en:"Watch demo",ar:"شاهد العرض"},url:"https://drive.google.com/file/d/1Y_9SYreLhtM_zXlfiqw6OkMzw2lR5uoW/view?usp=drive_link",primary:false},
+   {label:{en:"Try live app",ar:"جرّب التطبيق"},url:"https://retail-demand-forecasting-morrow.streamlit.app/",primary:true},
+   {label:{en:"GitHub",ar:"GitHub"},url:"https://github.com/itsrudaynah/retail-demand-forecasting"}
+  ],
+  shots:[
+   {src:"images/overview.png",cap:{en:"Overview dashboard",ar:"لوحة النظرة العامة"}},
+   {src:"images/forecast-explorer.png",cap:{en:"Forecast Explorer — DeepAR validation performance",ar:"مستكشف التوقعات — أداء DeepAR على بيانات التحقق"}}
+  ],
+  stats:{
+    en:[{v:"1,728",l:"time series evaluated"},{v:"6",l:"forecasting models compared"},{v:"0.4761",l:"best RMSLE (DeepAR)"},{v:"15",l:"days forecast horizon"}],
+    ar:[{v:"1,728",l:"سلسلة زمنية قيّمتها"},{v:"6",l:"نماذج توقع قارنتها"},{v:"0.4761",l:"أفضل RMSLE (DeepAR)"},{v:"15",l:"يوم أفق التوقع"}]},
+  takeaway:{
+    en:"No single model wins across all demand patterns. DeepAR led on Regular and Intermittent demand, while tuned XGBoost was best on Irregular — showing that pattern-aware model selection beats a one-size-fits-all approach.",
+    ar:"ما فيه نموذج واحد يفوز بكل أنماط الطلب. DeepAR تفوق في المنتظم والمتقطع، وXGBoost المضبوط كان الأفضل في غير المنتظم. يعني اختيار النموذج حسب النمط أحسن من نموذج واحد للكل."}},
+
+ {color:"#E0568A",name:"TikTok Video Engagement Prediction",
+  tag:{en:"Predicting a video's views after 30 days from its first 5 days",
+       ar:"توقع مشاهدات فيديو تيك توك بعد 30 يوم من بيانات أول 5 أيام بس"},
+  meta:{en:"Data Science Bootcamp · In-Class Kaggle Competition · 09/2026",
+        ar:"معسكر علم البيانات · مسابقة Kaggle داخل المعسكر · 09/2026"},
+  problem:{en:"Video views are extremely uneven: a handful of viral videos get most of the views (the top 100 videos make up about 58% of all views). A standard model struggles to predict the many ordinary videos and the few viral ones at the same time.",
+           ar:"مشاهدات الفيديوهات مو متوازنة أبدًا: عدد قليل من الفيديوهات الفايرال ياخذ أغلب المشاهدات (أعلى 100 فيديو يمثلون حوالي 58% من المجموع). وهذا يصعّب على النموذج العادي إنه يتوقع الفيديوهات العادية والفايرال بنفس الوقت."},
+  built:{
+    en:["Complete machine learning pipeline, from raw tables (videos, daily engagement, daily creator stats) to a Kaggle submission",
+        "Built features from the first 5 days of engagement, and matched creator stats to each video's posting date (as-of merge) so nothing from after posting leaks in",
+        "Leakage-safe validation: stratified 5-fold CV on view-count bins, with the viral cutoff computed inside each fold",
+        "Compared LightGBM and CatBoost baselines, target transformations, and CatBoost tuning, then built a two-stage model: a classifier for the chance a video goes viral, plus two regressors (all videos, and viral only) blended by that probability"],
+    ar:["خط تعلم آلة كامل، من الجداول الخام (الفيديوهات، التفاعل اليومي، إحصائيات صانع المحتوى) إلى ملف التسليم في Kaggle",
+        "بنيت features من تفاعل أول 5 أيام، وربطت إحصائيات صانع المحتوى بتاريخ نشر كل فيديو (as-of merge) عشان ما تدخل أي معلومة من بعد النشر",
+        "تحقق يمنع تسرب البيانات: قسّمت البيانات بـ stratified 5-fold حسب شرائح المشاهدات، وحسبت حد الفايرال داخل كل fold عشان ما يتسرب شي من بيانات التحقق",
+        "قارنت LightGBM وCatBoost كنقطة بداية، وجربت تحويلات للهدف، وضبطت إعدادات CatBoost، وبعدين بنيت نموذج من مرحلتين: مصنّف يتوقع احتمال إن الفيديو يصير فايرال، ونموذجين للتوقع (واحد لكل الفيديوهات وواحد للفايرال بس)، ويندمجون حسب الاحتمال"]},
+  result:{
+    en:["Two-stage CatBoost cut cross-validated RMSE from ~138,300 (LightGBM baseline) to ~102,942, averaged over 3 CV seeds",
+        "About 15% lower RMSE than the best single tuned CatBoost (~120,600)",
+        "Reached 81,298 RMSE on the Kaggle public leaderboard"],
+    ar:["النموذج ذو المرحلتين نزّل الخطأ (RMSE) من ~138,300 عند أول نموذج جربته (LightGBM) إلى ~102,942 في التحقق المتقاطع، كمتوسط 3 تجارب بـ seeds مختلفة",
+        "أقل بحوالي 15% من أفضل CatBoost مفرد بعد الضبط (~120,600)",
+        "وصلت إلى 81,298 RMSE على لوحة ترتيب Kaggle العامة"]},
+  stack:["Python","Pandas","CatBoost","Scikit-learn","LightGBM"],
+  links:[
+   {label:{en:"GitHub",ar:"GitHub"},url:"https://github.com/inoufalharbi/ds-tiktok-viral-predict",primary:true}
+  ],
+  shots:[
+   {src:"images/tiktok-target-distribution.png",cap:{en:"Day-30 views are extremely right-skewed (raw vs. log scale)",ar:"المشاهدات بعد 30 يوم متركزة عند الأرقام الصغيرة وقليل منها ضخم جدًا (الأصلي مقابل اللوغاريتمي)"}},
+   {src:"images/tiktok-two-stage.png",cap:{en:"Two-stage model: viral classifier + two regressors",ar:"النموذج ذو المرحلتين: مصنّف للفايرال + نموذجين للتوقع"}},
+   {src:"images/tiktok-results.png",cap:{en:"Cross-validated RMSE by model",ar:"RMSE في التحقق المتقاطع لكل نموذج"}}
+  ],
+  stats:{
+    en:[{v:"81,298",l:"RMSE on Kaggle public leaderboard"},{v:"~102.9K",l:"two-stage CV RMSE (3 seeds)"},{v:"12,000",l:"training videos"},{v:"5",l:"days of early engagement used"}],
+    ar:[{v:"81,298",l:"RMSE على لوحة ترتيب Kaggle العامة"},{v:"~102.9K",l:"RMSE بالتحقق المتقاطع (متوسط 3 seeds)"},{v:"12,000",l:"فيديو تدريب"},{v:"5",l:"أيام تفاعل استخدمتها"}]},
+  takeaway:{
+    en:"Tuning the model's settings improved RMSE by only about 2%, but separating viral videos from ordinary ones cut it by roughly another 15%. When a few videos get most of the views, how you structure the model matters more than fine-tuning it.",
+    ar:"ضبط إعدادات النموذج (tuning) نزّل الخطأ حوالي 2% بس، لكن فصل الفيديوهات الفايرال عن العادية نزّله حوالي 15% زيادة. يعني لما قلة من الفيديوهات تاخذ أغلب المشاهدات، طريقة بناء النموذج تفرق أكثر من ضبط إعداداته."}},
+
+ {color:"#8B5FD0",name:"FLOWIN",
+  tag:{en:"Admission data pipeline and decision dashboard",
+       ar:"خط بيانات القبول ولوحة تساعد على اتخاذ القرار"},
+  meta:{en:"Software Development Bootcamp · 05/2026 – 07/2026",
+        ar:"معسكر تطوير البرمجيات · 05/2026 – 07/2026"},
+  problem:{en:"Admission teams manage thousands of applicant records across spreadsheets, assessments, and interviews — with no unified view to make consistent decisions.",
+           ar:"فرق القبول تتعامل مع آلاف سجلات المتقدمين موزعة بين جداول واختبارات ومقابلات، وما فيه رؤية موحدة تساعدهم يقررون بشكل متسق."},
+  built:{
+    en:["Import pipelines using Pandas and OpenPyXL to ingest and validate Excel data across four linked tables (Applicants, Assessments, Interviews, Final Shortlist)",
+        "Data cleaning and validation rules — filtering candidates by English score, technical score, and cheat score thresholds",
+        "Dashboard analytics that aggregate applicants, assessments, interviews, and final decisions by city and outcome",
+        "Role-aware data views: coordinators manage pipelines, interviewers see only assigned records, admins see the full picture"],
+    ar:["خطوط استيراد بـ Pandas وOpenPyXL تقرأ بيانات Excel وتتحقق منها عبر أربعة جداول مترابطة (المتقدمون، الاختبارات، المقابلات، القائمة النهائية)",
+        "قواعد تنظيف وتحقق: فلترة المرشحين حسب درجة الإنجليزي والدرجة التقنية وحد درجة الغش",
+        "تحليلات في لوحة التحكم تجمع المتقدمين والاختبارات والمقابلات والقرارات النهائية حسب المدينة والنتيجة",
+        "عرض بيانات حسب الدور: المنسق يدير خطوط المعالجة، والمقابل يشوف السجلات المسندة له بس، والمدير يشوف الصورة كاملة"]},
+  result:{
+    en:["Processed and validated 1,500+ assessment and 1,000+ applicant records across multiple import cycles",
+        "Turned scattered applicant data into a single decision pipeline: from raw Excel to Accepted / Backup / Rejected outcomes",
+        "Enabled consistent decisions across teams through standardized score aggregation and shortlist tracking"],
+    ar:["عالجت وتحققت من أكثر من 1,500 سجل اختبار و1,000 سجل متقدم عبر أكثر من دورة استيراد",
+        "حوّلت بيانات المتقدمين المتفرقة إلى مسار قرار واحد: من Excel الخام إلى مقبول / احتياط / مرفوض",
+        "ساعدت الفرق تاخذ قرارات متسقة بفضل توحيد طريقة جمع الدرجات وتتبع القائمة النهائية"]},
+  stack:["Python","Pandas","OpenPyXL","SQLite","FastAPI","React"],
+  links:[
+   {label:{en:"Watch demo",ar:"شاهد العرض"},url:"https://drive.google.com/file/d/1L5iYo5PbNxkiZpmlOcT6w0Z6fuPbw4-K/view",primary:false},
+   {label:{en:"GitHub",ar:"GitHub"},url:"https://github.com/basmahalfaifi/FLOWIN"}
+  ],
+  shots:[
+   {src:"images/flowin-dashboard.png",cap:{en:"Admin dashboard — live KPIs and decision summary",ar:"لوحة المدير — مؤشرات حية وملخص القرارات"}},
+   {src:"images/flowin-applicants.png",cap:{en:"Applicants list — Excel import and filtering",ar:"قائمة المتقدمين — استيراد Excel والفلترة"}},
+   {src:"images/flowin-assessments.png",cap:{en:"Assessments — score-based qualification filter",ar:"الاختبارات — فلترة التأهل حسب الدرجات"}}
+  ],
+  stats:{
+    en:[{v:"1,500+",l:"assessment records"},{v:"1,000+",l:"applicant records"},{v:"4",l:"linked data tables"},{v:"3",l:"user roles with scoped views"}],
+    ar:[{v:"1,500+",l:"سجل اختبار"},{v:"1,000+",l:"سجل متقدم"},{v:"4",l:"جداول بيانات مترابطة"},{v:"3",l:"أدوار مستخدمين بعروض مخصصة"}]},
+  takeaway:{
+    en:"Turning scattered Excel files into a structured pipeline gave the team a single dashboard view with consistent, auditable criteria, instead of manual review across spreadsheets.",
+    ar:"تحويل ملفات Excel المتفرقة إلى مسار منظم خلّى القرارات تطلع من لوحة وحدة بمعايير ثابتة وقابلة للمراجعة، بدل المراجعة اليدوية بين الجداول."}},
+
+ {color:"#3AA0C4",name:"IOT-MSIIA",
+  tag:{en:"Real-time IV monitoring with sensor data pipeline",
+       ar:"مراقبة لحظية للمحاليل الوريدية عبر خط بيانات من الحساسات"},
+  meta:{en:"Graduation Project, Taibah University · 09/2024 – 05/2025",
+        ar:"مشروع التخرج، جامعة طيبة · 09/2024 – 05/2025"},
+  problem:{en:"Nurses monitor IV fluid levels manually, and missed empty bags can harm patients. Existing alert devices are noisy, unreliable, and don't reach nurses in far rooms.",
+           ar:"الممرضات يراقبن مستوى المحاليل الوريدية يدويًا، وفوات كيس فاضي ممكن يضر المريض. أجهزة التنبيه الحالية مزعجة وما يُعتمد عليها وما توصل للممرضة في الغرف البعيدة."},
+  built:{
+    en:["Collected requirements from 97 participants (nurses, patients, companions) through mixed-method surveys and interviews to define measurable system requirements",
+        "Built a real-time data pipeline: piezoelectric sensor detects droplet vibrations, AD620 amplifier boosts the signal, Arduino applies moving-average filtering and threshold-based drop detection, and ESP8266 broadcasts structured JSON (sensor ID, status, timestamps) over WebSocket",
+        "Designed a structured Firestore schema with five linked collections to track solution lifecycle: ActiveSolutions, StoppedSolutions, CheckIn, Nurse, and SensorRoomMap",
+        "Android app (Java) receives real-time JSON, parses each event, and translates it into a nurse notification with the mapped room number"],
+    ar:["جمعت المتطلبات من 97 مشارك (ممرضات ومرضى ومرافقين) عن طريق استبيانات ومقابلات لتحديد متطلبات قابلة للقياس",
+        "بنيت خط بيانات لحظي: حساس piezoelectric يلتقط اهتزاز القطرات، ومضخم AD620 يقوّي الإشارة، وArduino يطبق فلترة moving-average ويكتشف القطرات بحد معين، وESP8266 يرسل JSON منظم (معرّف الحساس، الحالة، الأوقات) عبر WebSocket",
+        "صممت مخطط Firestore منظم بخمس مجموعات مترابطة لتتبع دورة حياة المحلول: ActiveSolutions، StoppedSolutions، CheckIn، Nurse، SensorRoomMap",
+        "تطبيق Android (Java) يستقبل الـ JSON لحظيًا، ويحلل كل حدث، ويحوله إلى إشعار للممرضة مع رقم الغرفة المرتبطة بالحساس"]},
+  result:{
+    en:["Detection accuracy of ~95.6% across 50+ hardware trials, with sensor-to-app latency under 5 seconds",
+        "20 real integration tests: 100% of data packets received without errors; 3 simulated failures traced to unstable Wi-Fi, not the pipeline",
+        "Delivered a full data lifecycle for IV events: sensor reading → structured event → stored record → actionable nurse notification → historical log"],
+    ar:["دقة اكتشاف حوالي 95.6% في أكثر من 50 تجربة على العتاد، وزمن وصول من الحساس للتطبيق أقل من 5 ثواني",
+        "20 اختبار تكامل حقيقي: وصلت 100% من حزم البيانات بدون أخطاء، و3 حالات فشل محاكاة رجعت لـ Wi-Fi غير مستقر مو للخط نفسه",
+        "سلّمت دورة بيانات كاملة للمحاليل: قراءة الحساس → حدث منظم → سجل محفوظ → إشعار للممرضة → سجل تاريخي"]},
+  stack:["Python","Arduino C++","Java","Firebase Firestore","WebSocket","IoT"],
+  links:[
+   {label:{en:"GitHub",ar:"GitHub"},url:"https://github.com/inoufalharbi/IOT-MSIIA",primary:true}
+  ],
+  shots:[
+   {src:"images/arch.png",cap:{en:"End-to-End System Architecture",ar:"المعمارية العامة للنظام: من الحساس إلى التطبيق"}},
+   {src:"images/sequence_diagram.png",cap:{en:"Real-time Data Flow & Sequence Diagram",ar:"تسلسل العمليات وتدفق البيانات اللحظي"}},
+   {src:"images/app_ui.jpeg",cap:{en:"App Interface Overview",ar:"نظرة عامة على واجهات التطبيق"}}
+  ],
+  stats:{
+    en:[{v:"95.6%",l:"detection accuracy"},{v:"97",l:"usability participants"},{v:"50+",l:"hardware trials"},{v:"<5s",l:"sensor-to-app latency"}],
+    ar:[{v:"95.6%",l:"دقة الاكتشاف"},{v:"97",l:"مشارك في دراسة الاستخدام"},{v:"50+",l:"تجربة على العتاد"},{v:"<5s",l:"زمن وصول الحساس للتطبيق"}]},
+  takeaway:{
+    en:"Real-time IoT pipelines live or die on structure — sensor noise, JSON formatting, and Firestore schema all had to be designed together for the alert to reach a nurse reliably.",
+    ar:"خطوط IoT اللحظية تعتمد على البنية: ضوضاء الحساس وتنسيق JSON ومخطط Firestore لازم نصممها كلها مع بعض عشان الإشعار يوصل للممرضة بشكل موثوق."}}
+ ]
+};
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* 🎨 ألوان الصفحة (لافندر) */
+:root{--bg:#F8F5FD;--surface:#FFFFFF;--ink:#2A2144;--muted:#6A6285;--line:#E6DFF3;--accent:#7B5CD6;--b2:#D9C8FF;--b3:#FFD6E0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 18px/1.7 "IBM Plex Sans","IBM Plex Sans Arabic",system-ui,sans-serif;overflow-x:hidden}
+html[lang="ar"] body{font-family:"IBM Plex Sans Arabic","IBM Plex Sans",system-ui,sans-serif}
+html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3,html[lang="ar"] h4{font-family:"IBM Plex Sans Arabic","IBM Plex Sans",sans-serif;letter-spacing:0}
+h1,h2,h3,h4{margin:0;line-height:1.12;letter-spacing:-.02em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:24px;align-items:center;height:58px;overflow-x:auto}
+nav b{margin-right:auto;white-space:nowrap;font-weight:700}
+html[lang="ar"] nav b{margin-right:0;margin-left:auto}
+nav a{text-decoration:none;color:var(--muted);font-weight:500;font-size:15px;white-space:nowrap;transition:color .2s}
+nav a:hover{color:var(--accent)}
+.lang-switch{display:flex;background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:3px;gap:2px;flex-shrink:0}
+.lang-switch button{border:none;background:transparent;padding:5px 12px;border-radius:99px;cursor:pointer;color:var(--muted);font-family:inherit;font-size:13px;font-weight:600;transition:all .2s}
+.lang-switch button.on{background:var(--ink);color:var(--bg)}
+.hero{position:relative;min-height:80vh;display:flex;align-items:center;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;animation:drift 20s ease-in-out infinite alternate}
+.b1{width:420px;height:420px;background:var(--accent);top:-80px;right:-60px;opacity:.28}
+.b2{width:480px;height:480px;background:var(--b2);bottom:-160px;left:-100px;animation-duration:26s}
+.b3{width:320px;height:320px;background:var(--b3);top:30%;left:48%;animation-duration:23s;opacity:.4}
+@keyframes drift{to{transform:translate(50px,-40px) scale(1.12)}}
+.hero .wrap{position:relative}
+.hero h1{font-size:clamp(46px,9vw,92px);font-weight:800}
+.hero h1 span{display:inline-block;opacity:0;transform:translateY(24px);animation:up .8s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes up{to{opacity:1;transform:none}}
+.role{font-size:clamp(22px,3.6vw,32px);font-weight:600;margin:20px 0 4px;min-height:1.3em}
+.role em{font-style:normal;color:var(--accent);display:inline-block;transition:opacity .4s,transform .4s}
+.role em.out{opacity:0;transform:translateY(-10px)}
+.hero p{max-width:52ch;color:var(--muted);margin:12px 0 0}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-block;padding:13px 24px;border-radius:99px;font-weight:600;text-decoration:none;border:1.5px solid var(--ink);transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px color-mix(in srgb,var(--accent) 25%,transparent)}
+.btn.p{background:var(--ink);color:var(--bg)}
+.head{padding:84px 0 8px}
+.head h2{font-size:clamp(30px,5vw,46px);font-weight:800}
+.head p{color:var(--muted);max-width:60ch;margin:12px 0 0}
+.proj{background:color-mix(in srgb,var(--c) 9%,var(--bg));padding:64px 0;margin-top:36px}
+.proj .wrap{display:grid;grid-template-columns:1fr;gap:28px;max-width:780px;margin:0 auto}
+.meta{font-weight:500;color:var(--muted);font-size:14px;display:flex;align-items:center;gap:8px}
+.meta::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--c)}
+.txt h3{font-size:clamp(30px,4.6vw,44px);font-weight:800;margin:10px 0 8px}
+.tag{font-size:19px;margin:0 0 18px;color:var(--muted)}
+.txt h4{margin:22px 0 6px;font-size:15px;font-weight:700;color:var(--c)}
+.txt p{margin:0}.txt ul{margin:0;padding-left:20px}.txt li{margin-bottom:6px}
+html[lang="ar"] .txt ul{padding-left:0;padding-right:20px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chips span{background:var(--surface);border:1px solid var(--c);padding:3px 12px;border-radius:99px;font-size:14px;font-weight:500;direction:ltr}
+.proj-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.lnk{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:99px;font-weight:600;font-size:15px;text-decoration:none;border:1.5px solid var(--c);color:var(--c);transition:all .2s}
+.lnk:hover{background:color-mix(in srgb,var(--c) 12%,var(--surface))}
+.lnk.primary{background:var(--c);color:var(--surface);border-color:var(--c)}
+.lnk.primary:hover{transform:translateY(-2px);box-shadow:0 10px 22px color-mix(in srgb,var(--c) 30%,transparent)}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.shot{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:transform .2s,box-shadow .3s}
+.shot:hover{box-shadow:0 20px 44px color-mix(in srgb,var(--c) 22%,transparent)}
+.shot .bar{display:flex;gap:6px;padding:11px 14px;border-bottom:1px solid var(--line)}
+.shot .bar i{width:9px;height:9px;border-radius:50%;background:var(--c);opacity:.5}
+.shot img{display:block;width:100%;height:auto}
+.ph{aspect-ratio:16/10;display:grid;place-content:center;text-align:center;gap:4px;padding:20px;color:var(--muted);background:linear-gradient(135deg,color-mix(in srgb,var(--c) 10%,var(--surface)),var(--surface))}
+.ph b{font-size:18px;color:var(--c)}
+.shot figcaption{padding:12px 16px;font-size:14px;color:var(--muted);border-top:1px solid var(--line)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+.about{max-width:64ch;color:var(--muted);margin:14px 0 0}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;padding:26px 0 6px}
+.skills div{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;transition:transform .25s}
+.skills div:hover{transform:translateY(-4px)}
+.skills h3{font-size:19px;margin-bottom:6px}.skills p{margin:0;color:var(--muted);font-size:16px;direction:ltr}
+html[lang="ar"] .skills p{direction:rtl}
+.skills p.chips{margin-top:12px;display:flex}
+.skills .chips span{border-color:var(--line);background:var(--bg)}
+.edu{display:grid;gap:14px;padding:24px 0 48px}
+.edu div{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:14px}
+.edu h3{font-size:20px}.edu p,.edu time{margin:2px 0 0;color:var(--muted);font-size:15px}
+.contact{background:var(--ink);color:var(--bg);padding:88px 0;text-align:center}
+.contact h2{font-size:clamp(36px,8vw,76px);font-weight:800}
+.contact p{max-width:44ch;margin:16px auto 28px;opacity:.8}
+.contact .btn{border-color:var(--bg);color:var(--bg)}
+.contact .btn.p{background:var(--bg);color:var(--ink)}
+footer{padding:24px 0 36px;color:var(--muted);font-size:14px;text-align:center}
+.pstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
+.pstats div{text-align:left}
+html[lang="ar"] .pstats div{text-align:right}
+.pstats strong{display:block;font-size:clamp(22px,3vw,30px);font-weight:800;color:var(--c);line-height:1;direction:ltr}
+html[lang="ar"] .pstats strong{text-align:right}
+.pstats span{font-size:13px;color:var(--muted);display:block;margin-top:4px}
+.takeaway{margin-top:22px;padding:16px 18px;background:var(--surface);border-left:3px solid var(--c);border-radius:8px;font-size:16px;color:var(--muted);line-height:1.6}
+html[lang="ar"] .takeaway{border-left:none;border-right:3px solid var(--c)}
+.takeaway b{color:var(--c);font-weight:700}
+@media(max-width:820px){.proj .wrap{grid-template-columns:1fr}.txt{position:static}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.hero h1 span,.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;padding:30px 0 10px}
+.card{position:relative;text-align:start;font:inherit;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:30px 26px 24px;cursor:pointer;display:flex;flex-direction:column;gap:12px;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:var(--c)}
+.card:hover{transform:translateY(-6px);box-shadow:0 22px 44px color-mix(in srgb,var(--c) 22%,transparent);border-color:var(--c)}
+.card h3{font-size:28px;font-weight:800}
+.card p{margin:0;color:var(--muted);font-size:16px}
+.card .big{font-size:32px;font-weight:800;color:var(--c);line-height:1;direction:ltr;text-align:start}
+.card .chips{margin:0}
+.card .go{margin-top:auto;padding-top:6px;font-weight:700;color:var(--c);display:flex;gap:6px;align-items:center}
+.card .go::after{content:"→";transition:transform .25s}
+.card:hover .go::after{transform:translateX(5px)}
+html[lang="ar"] .card .go::after{content:"←"}
+html[lang="ar"] .card:hover .go::after{transform:translateX(-5px)}
+dialog{border:none;padding:0;border-radius:24px;width:min(1040px,94vw);max-height:90vh;background:var(--bg);color:var(--ink);overflow:auto;box-shadow:0 40px 90px rgba(10,20,50,.35)}
+dialog::backdrop{background:rgba(14,22,45,.55);backdrop-filter:blur(4px)}
+dialog[open]{animation:pop .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{from{opacity:0;transform:translateY(24px) scale(.97)}}
+dialog .proj{margin:0;padding:52px 10px 36px;border-top:6px solid var(--c)}
+dialog .rv{opacity:1;transform:none}
+dialog .txt{top:20px}
+.x{position:sticky;top:10px;float:inline-end;margin:10px;z-index:3;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:16px;cursor:pointer;transition:transform .2s}
+.x:hover{transform:rotate(90deg)}
+body.lock{overflow:hidden}
+
+/* Lightbox */
+.lightbox{
+  border:none;
+  padding:30px;
+  background:rgba(0,0,0,.92);
+  backdrop-filter:blur(8px);
+  cursor:zoom-out;
+  max-width:100vw;
+  max-height:100vh;
+  width:100vw;
+  height:100vh;
+  margin:0;
+  display:none;
+}
+.lightbox[open]{display:flex;align-items:center;justify-content:center;animation:fadeIn .25s}
+.lightbox::backdrop{background:transparent}
+@keyframes fadeIn{from{opacity:0}}
+.lightbox img{
+  max-width:95vw;
+  max-height:90vh;
+  object-fit:contain;
+  border-radius:12px;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+  cursor:default;
+}
+.lightbox .close-lb{
+  position:absolute;
+  top:20px;
+  inset-inline-end:24px;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:rgba(255,255,255,.15);
+  color:#fff;
+  font-size:18px;
+  display:grid;
+  place-content:center;
+  cursor:pointer;
+  transition:background .2s;
+}
+.lightbox .close-lb:hover{background:rgba(255,255,255,.3)}
+.shot img{cursor:zoom-in}
+.shot{cursor:zoom-in}
+</style>
+<noscript><style>.rv,.hero h1 span{opacity:1;transform:none}</style></noscript>
+
+</head>
+<body>
+<nav><div class="wrap"><b id="nm"></b><a href="#projects" data-i18n="nav.projects"></a><a href="#skills" data-i18n="nav.skills"></a><a href="#education" data-i18n="nav.education"></a><a href="#training" data-i18n="nav.training"></a><a href="#certificates" data-i18n="nav.certificates"></a><a href="#contact" data-i18n="nav.contact"></a><div class="lang-switch"><button id="langEN" onclick="setLang('en')">EN</button><button id="langAR" onclick="setLang('ar')">عربي</button></div></div></nav>
+<header class="hero"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i>
+ <div class="wrap"><h1 id="name"></h1><div class="role"><span id="roleText"></span> <em id="rot"></em></div><p id="intro"></p>
+ <div class="btns"><a class="btn p" href="#projects" data-i18n="ui.seeWork"></a><a class="btn" href="#contact" data-i18n="ui.contactMe"></a></div></div>
+</header>
+<div class="wrap head"><h2 data-i18n="ui.aboutTitle"></h2><p class="about" id="about"></p></div>
+<div class="wrap head" id="projects"><h2 data-i18n="ui.projectsTitle"></h2><p data-i18n="ui.projectsSub"></p></div>
+<div class="wrap"><div class="cards" id="list"></div></div>
+<div class="wrap head" id="skills"><h2 data-i18n="ui.skillsTitle"></h2></div><div class="wrap"><div class="skills" id="sk"></div></div>
+<div class="wrap head" id="education"><h2 data-i18n="ui.educationTitle"></h2></div><div class="wrap"><div class="edu" id="ed"></div></div>
+<div class="wrap head" id="training"><h2 data-i18n="ui.trainingTitle"></h2></div><div class="wrap"><div class="edu" id="tr"></div></div>
+<div class="wrap head" id="certificates"><h2 data-i18n="ui.certificatesTitle"></h2></div><div class="wrap"><div class="edu" id="ce"></div></div>
+<section class="contact" id="contact"><div class="wrap rv"><h2 data-i18n="ui.contactTitle"></h2><p id="cl"></p><div class="btns" style="justify-content:center" id="cb"></div></div></section>
+<dialog id="dlg"></dialog>
+<footer id="ft"></footer>
+<dialog id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+  <span class="close-lb">✕</span>
+  <img id="lightbox-img" src="" alt="">
+</dialog>
+<script>
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+const mot=!matchMedia("(prefers-reduced-motion:reduce)").matches;
+const li=a=>a.map(x=>`<li>${x}</li>`).join("");
+let LANG='en';
+
+function getPath(obj,path){
+  return path.split('.').reduce((o,k)=>{
+    if(o&&typeof o==='object'&&k in o)return o[k];
+    return undefined;
+  },obj);
+}
+
+function setLang(lang){
+  LANG=lang;
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  try{localStorage.setItem('nouf-portfolio-lang',lang);}catch(e){}
+  $("#langEN").classList.toggle('on',lang==='en');
+  $("#langAR").classList.toggle('on',lang==='ar');
+  document.title=getPath(SITE.name,lang)+' – Portfolio';
+  $("#nm").textContent=getPath(SITE.name,lang);
+
+  // data-i18n
+  $$('[data-i18n]').forEach(el=>{
+    const v=getPath(SITE,el.getAttribute('data-i18n'));
+    if(v)el.textContent=getPath(v,lang);
+  });
+
+  // name (letter by letter for EN, word by word for AR)
+  const n=$("#name");n.innerHTML="";
+  const nm=getPath(SITE.name,lang);
+  if(lang==='ar'){
+    // قسّمي بالكلمات للعربي
+    nm.split(' ').forEach((w,i)=>{
+      const s=document.createElement("span");
+      s.textContent=w;
+      s.style.animationDelay=i*200+"ms";
+      s.style.display="inline-block";
+      n.append(s);
+      if(i<nm.split(' ').length-1) n.append(document.createTextNode("\u00A0"));
+    });
+  } else {
+    // حرف حرف للإنجليزي
+    [...nm].forEach((c,i)=>{
+      const s=document.createElement("span");
+      s.textContent=c==" "?"\u00A0":c;
+      s.style.animationDelay=i*50+"ms";
+      n.append(s);
+    });
+  }
+
+  // role
+  $("#roleText").textContent=lang==='ar'?"أحوّل البيانات إلى":"I turn data into";
+
+  // intro, about, contact line
+  $("#intro").textContent=getPath(SITE.intro,lang);
+  $("#about").textContent=getPath(SITE.about,lang);
+  $("#cl").textContent=getPath(SITE.contactLine,lang);
+  $("#ft").textContent="© "+new Date().getFullYear()+" "+getPath(SITE.name,lang)+(SITE.location?" · "+getPath(SITE.location,lang):"");
+
+  // rotating words
+  const words=getPath(SITE.words,lang);
+  const r=$("#rot");let wi=0;r.textContent=words[0];
+  if(window._rotInt)clearInterval(window._rotInt);
+  if(mot&&words.length>1){
+    window._rotInt=setInterval(()=>{
+      r.classList.add("out");
+      setTimeout(()=>{r.textContent=words[++wi%words.length];r.classList.remove("out")},400);
+    },2600);
+  }
+
+  // skills
+  $("#sk").innerHTML=getPath(SITE.skills,lang).map(x=>`<div class="rv"><h3>${x.t}</h3><p class="chips">${x.items.split(", ").map(i=>`<span>${i}</span>`).join("")}</p></div>`).join("");
+
+  // education
+  $("#ed").innerHTML=getPath(SITE.education,lang).map(x=>`<div class="rv"><div><h3>${x.t}</h3><p>${x.s}</p></div><time>${x.d}</time></div>`).join("");
+
+  // certificates
+  $("#ce").innerHTML=getPath(SITE.certificates,lang).map(x=>`<div class="rv"><div><h3>${x.t}</h3><p>${x.s}</p></div><time>${x.d}</time></div>`).join("");
+
+  // training
+  $("#tr").innerHTML=getPath(SITE.training,lang).map(x=>`<div class="rv"><div><h3>${x.t}</h3><p>${x.s}</p></div><time>${x.d}</time></div>`).join("");
+
+  // contact buttons
+  $("#cb").innerHTML=[
+    [SITE.email,"https://mail.google.com/mail/?view=cm&to="+SITE.email+"&su=Portfolio%20Inquiry",1],
+    ["LinkedIn",SITE.linkedin],
+    ["GitHub",SITE.github]
+  ].filter(x=>x[1]&&x[0]).map(x=>`<a class="btn${x[2]?" p":""}" href="${x[1]}" target="_blank" rel="noopener">${x[0]}</a>`).join("");
+
+  // projects
+  window._full=SITE.projects.map(p=>{
+    const tag=getPath(p.tag,lang),meta=getPath(p.meta,lang),problem=getPath(p.problem,lang),
+          built=getPath(p.built,lang),result=getPath(p.result,lang),takeaway=getPath(p.takeaway,lang),
+          stats=getPath(p.stats,lang);
+    return `<section class="proj" style="--c:${p.color}"><div class="wrap"><div class="txt rv"><div class="meta">${meta}</div><h3>${p.name}</h3><p class="tag">${tag}</p>
+<h4>${getPath(SITE.ui.problemLabel,lang)}</h4><p>${problem}</p>
+<h4>${getPath(SITE.ui.builtLabel,lang)}</h4><ul>${li(built)}</ul>
+<h4>${getPath(SITE.ui.resultLabel,lang)}</h4><ul>${li(result)}</ul>
+<div class="pstats">${stats.map(s=>`<div><strong>${s.v}</strong><span>${s.l}</span></div>`).join("")}</div></div>
+<div class="shots">${p.shots.map(s=>`<figure class="shot rv"><div class="bar"><i></i><i></i><i></i></div>${s.src?`<img src="${s.src}" alt="${getPath(s.cap,lang)}" loading="lazy">`:`<div class="ph"><b>${getPath(SITE.ui.addShot,lang)}</b><span>${getPath(s.cap,lang)}</span></div>`}<figcaption>${getPath(s.cap,lang)}</figcaption></figure>`).join("")}</div>
+<div class="txt rv">
+<div class="proj-actions">${p.links.filter(l=>l.url).map(l=>`<a class="lnk${l.primary?" primary":""}" href="${l.url}" target="_blank" rel="noopener">${getPath(l.label,lang)} ↗</a>`).join("")}</div>
+<div class="takeaway"><b>${getPath(SITE.ui.takeawayLabel,lang)}:</b> ${takeaway}</div>
+<div class="chips">${p.stack.map(s=>`<span>${s}</span>`).join("")}</div></div></div></section>`;
+  });
+  renderCards(lang);
+
+  // re-observe for animation
+  document.querySelectorAll(".rv").forEach(e=>io.observe(e));
+}
+
+// IntersectionObserver once
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}
+}),{threshold:.12});
+
+// hover 3D on shots
+if(mot){
+  document.addEventListener('mousemove',e=>{
+    const el=e.target.closest('.shot');
+    if(el){
+      const b=el.getBoundingClientRect(),x=(e.clientX-b.left)/b.width-.5,y=(e.clientY-b.top)/b.height-.5;
+      el.style.transform=`perspective(900px) rotateY(${x*4}deg) rotateX(${-y*4}deg)`;
+    }
+  },true);
+  document.addEventListener('mouseout',e=>{
+    const el=e.target.closest('.shot');
+    if(el)el.style.transform="";
+  },true);
+}
+
+// project cards + details popup
+function renderCards(lang){
+  $("#list").innerHTML=SITE.projects.map((p,i)=>{
+    const st=getPath(p.stats,lang)[0];
+    return `<button class="card rv" style="--c:${p.color}" onclick="openProj(${i})"><div class="meta">${getPath(p.meta,lang)}</div><h3>${p.name}</h3><p>${getPath(p.tag,lang)}</p><div><div class="big">${st.v}</div><p style="font-size:14px">${st.l}</p></div><div class="chips">${p.stack.slice(0,4).map(s=>`<span>${s}</span>`).join("")}</div><span class="go">${getPath(SITE.ui.viewDetails,lang)}</span></button>`;
+  }).join("");
+}
+function openProj(i){
+  const d=$("#dlg");
+  d.innerHTML=`<button class="x" onclick="$('#dlg').close()" aria-label="${getPath(SITE.ui.close,LANG)}">✕</button>`+window._full[i];
+  d.scrollTop=0;d.showModal();document.body.classList.add("lock");
+}
+$("#dlg").addEventListener("close",()=>document.body.classList.remove("lock"));
+$("#dlg").addEventListener("click",e=>{if(e.target.id==="dlg")e.target.close()});
+
+(function(){
+  let saved='en';
+  try{saved=localStorage.getItem('nouf-portfolio-lang')||'en';}catch(e){}
+  setLang(saved);
+})();
+
+// Lightbox للصور
+function openLightbox(src){
+  const lb=$("#lightbox");
+  $("#lightbox-img").src=src;
+  lb.showModal();
+}
+function closeLightbox(e){
+  if(e && e.target.id !== 'lightbox' && !e.target.classList.contains('close-lb')) return;
+  $("#lightbox").close();
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&$("#lightbox").open)closeLightbox();
+});
+document.addEventListener('click',e=>{
+  const img=e.target.closest('.shot img');
+  if(img&&!img.src.includes('placeholder')){
+    e.preventDefault();
+    openLightbox(img.src);
+  }
+});
+</script>
+</body>
+</html>
