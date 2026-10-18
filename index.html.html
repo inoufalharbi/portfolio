@@ -22,8 +22,8 @@ const SITE={
  github:"https://github.com/inoufalharbi",
  location:{en:"Saudi Arabia",ar:"السعودية"},
  contactLine:{
-   en:"Open to Data Analyst opportunities and collaboration. Send me a message and I'll get back to you soon.",
-   ar:"أبحث عن فرصة كمحللة بيانات وأرحب بأي تعاون. راسلني وأرد عليك بأقرب وقت."},
+     en:"I'm open to roles in Data Science and Analytics. Have a project or an opportunity? Send me a message and let's create impact together.",
+     ar:"أرحب بالفرص في علم وتحليل البيانات. عندك مشروع أو فرصة؟ أرسل لي رسالة وخلّنا نصنع أثر سوا."},
  nav:{
    projects:{en:"Projects",ar:"المشاريع"},
    skills:{en:"Skills",ar:"المهارات"},
@@ -349,13 +349,82 @@ html[lang="ar"] .takeaway{border-left:none;border-right:3px solid var(--c)}
 .card:hover{transform:translateY(-6px);box-shadow:0 22px 44px color-mix(in srgb,var(--c) 22%,transparent);border-color:var(--c)}
 .card h3{font-size:28px;font-weight:800}
 .card p{margin:0;color:var(--muted);font-size:16px}
-.card .big{font-size:32px;font-weight:800;color:var(--c);line-height:1;direction:ltr;text-align:start}
+.card .big{
+  font-size:32px;
+  font-weight:800;
+  color:var(--c);
+  line-height:1;
+  direction:ltr; /* يخلي الأرقام تتقرأ صح */
+  text-align:left; /* بالإنجليزي تروح يسار */
+}
+html[lang="ar"] .card .big{
+  text-align:right; /* بالعربي تروح يمين */
+}
 .card .chips{margin:0}
-.card .go{margin-top:auto;padding-top:6px;font-weight:700;color:var(--c);display:flex;gap:6px;align-items:center}
-.card .go::after{content:"→";transition:transform .25s}
-.card:hover .go::after{transform:translateX(5px)}
-html[lang="ar"] .card .go::after{content:"←"}
-html[lang="ar"] .card:hover .go::after{transform:translateX(-5px)}
+
+/* تنسيق الأزرار اللي تحت البطاقة */
+.card .card-actions{
+  margin-top:auto; 
+  padding-top:20px; 
+  display:flex; 
+  flex-direction:column; /* نخليهم تحت بعض */
+  gap:16px; 
+  width:100%;
+}
+
+/* زر جيت هب الجديد */
+.card .btn-github{
+  display:flex; 
+  align-items:center; 
+  justify-content:center; 
+  gap:8px; 
+  padding:10px 16px;
+  border:1px solid var(--c); 
+  border-radius:12px; 
+  background:color-mix(in srgb, var(--c) 10%, var(--surface)); /* لون خفيف من لون البطاقة */
+  color:var(--c); /* لون النص نفس لون البطاقة */
+  font-size:14px; 
+  font-weight:600; 
+  text-decoration:none;
+  transition:all .2s; 
+  z-index:2; 
+  position:relative;
+  width:100%; /* ياخذ عرض البطاقة كامل */
+}
+.card .btn-github:hover{
+  background:var(--c); 
+  color:#fff; /* لما تقف عليه الماوس يصير لونه غامق ونصه أبيض */
+  transform:translateY(-2px);
+  box-shadow:0 6px 16px color-mix(in srgb, var(--c) 30%, transparent);
+}
+
+/* زر شاهد التفاصيل */
+.card .card-actions .go{
+  font-weight:700; 
+  color:var(--c); 
+  display:flex; 
+  gap:6px; 
+  align-items:center; 
+  margin:0; 
+  align-self:flex-end; /* يروح لليمين */
+}
+html[lang="ar"] .card .card-actions .go{
+  align-self:flex-start; /* بالعربي يروح لليسار */
+}
+/* ستايل زر +2 اللي يبين عدد المهارات المخفية */
+.card .chips .more-chips {
+  background: color-mix(in srgb, var(--c) 15%, var(--surface));
+  border-color: var(--c);
+  color: var(--c);
+  font-weight: 700;
+  padding: 3px 10px;
+}
+
+.card .card-actions .go::after{content:"→";transition:transform .25s}
+.card:hover .card-actions .go::after{transform:translateX(5px)}
+html[lang="ar"] .card-actions .go::after{content:"←"}
+html[lang="ar"] .card:hover .card-actions .go::after{transform:translateX(-5px)}
+
 dialog{border:none;padding:0;border-radius:24px;width:min(1040px,94vw);max-height:90vh;background:var(--bg);color:var(--ink);overflow:auto;box-shadow:0 40px 90px rgba(10,20,50,.35)}
 dialog::backdrop{background:rgba(14,22,45,.55);backdrop-filter:blur(4px)}
 dialog[open]{animation:pop .35s cubic-bezier(.2,.8,.2,1)}
@@ -519,11 +588,13 @@ function setLang(lang){
   $("#tr").innerHTML=getPath(SITE.training,lang).map(x=>`<div class="rv"><div><h3>${x.t}</h3><p>${x.s}</p></div><time>${x.d}</time></div>`).join("");
 
   // contact buttons
+  // contact buttons
   $("#cb").innerHTML=[
     [SITE.email,"https://mail.google.com/mail/?view=cm&to="+SITE.email+"&su=Portfolio%20Inquiry",1],
     ["LinkedIn",SITE.linkedin],
-    ["GitHub",SITE.github]
-  ].filter(x=>x[1]&&x[0]).map(x=>`<a class="btn${x[2]?" p":""}" href="${x[1]}" target="_blank" rel="noopener">${x[0]}</a>`).join("");
+    ["GitHub",SITE.github],
+    [{en:"CV", ar:" السيرة الذاتية"}, "Nouf_Alharbi_Resume.pdf"]
+  ].filter(x=>x[1]&&x[0]).map(x=>`<a class="btn${x[2]?" p":""}" href="${x[1]}" target="_blank" rel="noopener">${getPath(x[0],lang)||x[0]}</a>`).join("");
 
   // projects
   window._full=SITE.projects.map(p=>{
@@ -537,7 +608,7 @@ function setLang(lang){
 <div class="pstats">${stats.map(s=>`<div><strong>${s.v}</strong><span>${s.l}</span></div>`).join("")}</div></div>
 <div class="shots">${p.shots.map(s=>`<figure class="shot rv"><div class="bar"><i></i><i></i><i></i></div>${s.src?`<img src="${s.src}" alt="${getPath(s.cap,lang)}" loading="lazy">`:`<div class="ph"><b>${getPath(SITE.ui.addShot,lang)}</b><span>${getPath(s.cap,lang)}</span></div>`}<figcaption>${getPath(s.cap,lang)}</figcaption></figure>`).join("")}</div>
 <div class="txt rv">
-<div class="proj-actions">${p.links.filter(l=>l.url).map(l=>`<a class="lnk${l.primary?" primary":""}" href="${l.url}" target="_blank" rel="noopener">${getPath(l.label,lang)} ↗</a>`).join("")}</div>
+<div class="proj-actions">${p.links.filter(l=>l.url && !l.url.toLowerCase().includes('github.com')).map(l=>`<a class="lnk${l.primary?" primary":""}" href="${l.url}" target="_blank" rel="noopener">${getPath(l.label,lang)} ↗</a>`).join("")}</div>
 <div class="takeaway"><b>${getPath(SITE.ui.takeawayLabel,lang)}:</b> ${takeaway}</div>
 <div class="chips">${p.stack.map(s=>`<span>${s}</span>`).join("")}</div></div></div></section>`;
   });
@@ -571,7 +642,30 @@ if(mot){
 function renderCards(lang){
   $("#list").innerHTML=SITE.projects.map((p,i)=>{
     const st=getPath(p.stats,lang)[0];
-    return `<button class="card rv" style="--c:${p.color}" onclick="openProj(${i})"><div class="meta">${getPath(p.meta,lang)}</div><h3>${p.name}</h3><p>${getPath(p.tag,lang)}</p><div><div class="big">${st.v}</div><p style="font-size:14px">${st.l}</p></div><div class="chips">${p.stack.slice(0,4).map(s=>`<span>${s}</span>`).join("")}</div><span class="go">${getPath(SITE.ui.viewDetails,lang)}</span></button>`;
+    
+    // كود يبحث عن رابط GitHub
+    const ghLink = p.links.find(l => l.url && l.url.toLowerCase().includes('github.com'));
+    const ghBtn = ghLink ? `<a href="${ghLink.url}" target="_blank" rel="noopener" class="btn-github" onclick="event.stopPropagation()">GitHub ↗</a>` : ``;
+
+    // كود عرض أول 3 مهارات + الرقم المتبقي
+    const maxChips = 3;
+    const displayStack = p.stack.slice(0, maxChips).map(s=>`<span>${s}</span>`).join("");
+    const remainingCount = p.stack.length - maxChips;
+    const moreChip = remainingCount > 0 ? `<span class="more-chips">+${remainingCount}</span>` : "";
+
+    return `<button class="card rv" style="--c:${p.color}" onclick="openProj(${i})">
+      <div class="meta">${getPath(p.meta,lang)}</div>
+      <h3>${p.name}</h3>
+      <p>${getPath(p.tag,lang)}</p>
+      <div><div class="big">${st.v}</div><p style="font-size:14px; margin-top:4px; text-align:start;">${st.l}</p></div>
+      
+      <div class="chips">${displayStack}${moreChip}</div>
+      
+      <div class="card-actions">
+        ${ghBtn}
+        <span class="go">${getPath(SITE.ui.viewDetails,lang)}</span>
+      </div>
+    </button>`;
   }).join("");
 }
 function openProj(i){
