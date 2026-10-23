@@ -69,21 +69,21 @@ const SITE={
     {t:"الأدوات",items:"Git, GitHub, Docker, Streamlit"}]},
  education:{
    en:[
-    {t:"B.Sc. Computer Science",s:"Taibah University · GPA 4.64 of 5, Second Honor",d:"08/2020 – 05/2025"}],
+    {t:"B.Sc. Computer Science",s:"Taibah University · GPA 4.64 of 5, Second Honor",d:"08/2020 – 05/2025", link:"degree.pdf"}],
    ar:[
-    {t:"بكالوريوس علوم الحاسب",s:"جامعة طيبة · معدل 4.64 من 5، مرتبة الشرف الثانية",d:"08/2020 – 05/2025"}]},
+    {t:"بكالوريوس علوم الحاسب",s:"جامعة طيبة · معدل 4.64 من 5، مرتبة الشرف الثانية",d:"08/2020 – 05/2025", link:"degree.pdf"}]},
  certificates:{
    en:[
-    {t:"PCEP™: Certified Entry-Level Python Programmer",s:"Python Institute",d:"07/2026"}],
+    {t:"PCEP™: Certified Entry-Level Python Programmer",s:"Python Institute",d:"07/2026", link:"pcep.pdf"}],
    ar:[
-    {t:"PCEP™: شهادة مبرمج Python للمستوى المبتدئ",s:"Python Institute",d:"07/2026"}]},
+    {t:"PCEP™: شهادة مبرمج Python للمستوى المبتدئ",s:"Python Institute",d:"07/2026", link:"pcep.pdf"}]},
  training:{
    en:[
     {t:"Data Science Bootcamp",s:"WeCloudData · Saudi Digital Academy",d:"08/2026 – 09/2026"},
-    {t:"Software Development Bootcamp (Python)",s:"WeCloudData · Saudi Digital Academy",d:"05/2026 – 07/2026"}],
+    {t:"Software Development Bootcamp (Python)",s:"WeCloudData · Saudi Digital Academy",d:"05/2026 – 07/2026", link:"sd_bootcamp.pdf"}],
    ar:[
     {t:"معسكر علم البيانات",s:"WeCloudData · الأكاديمية السعودية الرقمية",d:"08/2026 – 09/2026"},
-    {t:"معسكر تطوير البرمجيات (Python)",s:"WeCloudData · الأكاديمية السعودية الرقمية",d:"05/2026 – 07/2026"}]},
+    {t:"معسكر تطوير البرمجيات (Python)",s:"WeCloudData · الأكاديمية السعودية الرقمية",d:"05/2026 – 07/2026", link:"sd_bootcamp.pdf"}]},
  projects:[
  {color:"#4F7BD8",name:"MORROW",
   tag:{en:"Retail demand forecasting and replenishment",
@@ -248,7 +248,6 @@ const SITE={
 
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* 🎨 ألوان الصفحة (لافندر) */
 :root{--bg:#F8F5FD;--surface:#FFFFFF;--ink:#2A2144;--muted:#6A6285;--line:#E6DFF3;--accent:#7B5CD6;--b2:#D9C8FF;--b3:#FFD6E0;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html{scroll-behavior:smooth;scroll-padding-top:64px}
@@ -356,25 +355,23 @@ html[lang="ar"] .takeaway{border-left:none;border-right:3px solid var(--c)}
   font-weight:800;
   color:var(--c);
   line-height:1;
-  direction:ltr; /* يخلي الأرقام تتقرأ صح */
-  text-align:left; /* بالإنجليزي تروح يسار */
+  direction:ltr; 
+  text-align:left; 
 }
 html[lang="ar"] .card .big{
-  text-align:right; /* بالعربي تروح يمين */
+  text-align:right; 
 }
 .card .chips{margin:0}
 
-/* تنسيق الأزرار اللي تحت البطاقة */
 .card .card-actions{
   margin-top:auto; 
   padding-top:20px; 
   display:flex; 
-  flex-direction:column; /* نخليهم تحت بعض */
+  flex-direction:column; 
   gap:16px; 
   width:100%;
 }
 
-/* زر جيت هب الجديد */
 .card .btn-github{
   display:flex; 
   align-items:center; 
@@ -383,24 +380,23 @@ html[lang="ar"] .card .big{
   padding:10px 16px;
   border:1px solid var(--c); 
   border-radius:12px; 
-  background:color-mix(in srgb, var(--c) 10%, var(--surface)); /* لون خفيف من لون البطاقة */
-  color:var(--c); /* لون النص نفس لون البطاقة */
+  background:color-mix(in srgb, var(--c) 10%, var(--surface)); 
+  color:var(--c); 
   font-size:14px; 
   font-weight:600; 
   text-decoration:none;
   transition:all .2s; 
   z-index:2; 
   position:relative;
-  width:100%; /* ياخذ عرض البطاقة كامل */
+  width:100%; 
 }
 .card .btn-github:hover{
   background:var(--c); 
-  color:#fff; /* لما تقف عليه الماوس يصير لونه غامق ونصه أبيض */
+  color:#fff; 
   transform:translateY(-2px);
   box-shadow:0 6px 16px color-mix(in srgb, var(--c) 30%, transparent);
 }
 
-/* زر شاهد التفاصيل */
 .card .card-actions .go{
   font-weight:700; 
   color:var(--c); 
@@ -408,12 +404,11 @@ html[lang="ar"] .card .big{
   gap:6px; 
   align-items:center; 
   margin:0; 
-  align-self:flex-end; /* يروح لليمين */
+  align-self:flex-end; 
 }
 html[lang="ar"] .card .card-actions .go{
-  align-self:flex-start; /* بالعربي يروح لليسار */
+  align-self:flex-start; 
 }
-/* ستايل زر +2 اللي يبين عدد المهارات المخفية */
 .card .chips .more-chips {
   background: color-mix(in srgb, var(--c) 15%, var(--surface));
   border-color: var(--c);
@@ -438,7 +433,6 @@ dialog .txt{top:20px}
 .x:hover{transform:rotate(90deg)}
 body.lock{overflow:hidden}
 
-/* Lightbox */
 .lightbox{
   border:none;
   padding:30px;
@@ -481,6 +475,25 @@ body.lock{overflow:hidden}
 .lightbox .close-lb:hover{background:rgba(255,255,255,.3)}
 .shot img{cursor:zoom-in}
 .shot{cursor:zoom-in}
+.btn-view {
+  display: inline-block;
+  margin-top: 0; 
+  margin-inline-start: 10px; 
+  padding: 3px 12px;
+  font-size: 12px; 
+  font-weight: 600;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border: 1px solid var(--accent);
+  border-radius: 99px;
+  text-decoration: none;
+  transition: all .2s;
+  vertical-align: middle; 
+}
+.btn-view:hover {
+  background: var(--accent);
+  color: #fff;
+}
 </style>
 <noscript><style>.rv,.hero h1 span{opacity:1;transform:none}</style></noscript>
 
@@ -528,17 +541,14 @@ function setLang(lang){
   document.title=getPath(SITE.name,lang)+' – Portfolio';
   $("#nm").textContent=getPath(SITE.name,lang);
 
-  // data-i18n
   $$('[data-i18n]').forEach(el=>{
     const v=getPath(SITE,el.getAttribute('data-i18n'));
     if(v)el.textContent=getPath(v,lang);
   });
 
-  // name (letter by letter for EN, word by word for AR)
   const n=$("#name");n.innerHTML="";
   const nm=getPath(SITE.name,lang);
   if(lang==='ar'){
-    // قسّمي بالكلمات للعربي
     nm.split(' ').forEach((w,i)=>{
       const s=document.createElement("span");
       s.textContent=w;
@@ -548,7 +558,6 @@ function setLang(lang){
       if(i<nm.split(' ').length-1) n.append(document.createTextNode("\u00A0"));
     });
   } else {
-    // حرف حرف للإنجليزي
     [...nm].forEach((c,i)=>{
       const s=document.createElement("span");
       s.textContent=c==" "?"\u00A0":c;
@@ -557,16 +566,13 @@ function setLang(lang){
     });
   }
 
-  // role
   $("#roleText").textContent=lang==='ar'?"أحوّل البيانات إلى":"I turn data into";
 
-  // intro, about, contact line
   $("#intro").textContent=getPath(SITE.intro,lang);
   $("#about").textContent=getPath(SITE.about,lang);
   $("#cl").textContent=getPath(SITE.contactLine,lang);
   $("#ft").textContent="© "+new Date().getFullYear()+" "+getPath(SITE.name,lang)+(SITE.location?" · "+getPath(SITE.location,lang):"");
 
-  // rotating words
   const words=getPath(SITE.words,lang);
   const r=$("#rot");let wi=0;r.textContent=words[0];
   if(window._rotInt)clearInterval(window._rotInt);
@@ -577,20 +583,38 @@ function setLang(lang){
     },2600);
   }
 
-  // skills
   $("#sk").innerHTML=getPath(SITE.skills,lang).map(x=>`<div class="rv"><h3>${x.t}</h3><p class="chips">${x.items.split(", ").map(i=>`<span>${i}</span>`).join("")}</p></div>`).join("");
 
-  // education
-  $("#ed").innerHTML=getPath(SITE.education,lang).map(x=>`<div class="rv"><div><h3>${x.t}</h3><p>${x.s}</p></div><time>${x.d}</time></div>`).join("");
+  $("#ed").innerHTML=getPath(SITE.education,lang).map(x=>`
+    <div class="rv">
+      <div>
+        <h3>${x.t}</h3>
+        <p>${x.s}</p>
+        ${x.link ? `<a href="${x.link}" target="_blank" class="btn-view">View Certificate ↗</a>` : ``}
+      </div>
+      <time>${x.d}</time>
+    </div>`).join("");
 
-  // certificates
-  $("#ce").innerHTML=getPath(SITE.certificates,lang).map(x=>`<div class="rv"><div><h3>${x.t}</h3><p>${x.s}</p></div><time>${x.d}</time></div>`).join("");
+  $("#ce").innerHTML=getPath(SITE.certificates,lang).map(x=>`
+    <div class="rv">
+      <div>
+        <h3>${x.t}</h3>
+        <p>${x.s}</p>
+        ${x.link ? `<a href="${x.link}" target="_blank" class="btn-view">View Certificate ↗</a>` : ``}
+      </div>
+      <time>${x.d}</time>
+    </div>`).join("");
 
-  // training
-  $("#tr").innerHTML=getPath(SITE.training,lang).map(x=>`<div class="rv"><div><h3>${x.t}</h3><p>${x.s}</p></div><time>${x.d}</time></div>`).join("");
+  $("#tr").innerHTML=getPath(SITE.training,lang).map(x=>`
+    <div class="rv">
+      <div>
+        <h3>${x.t}</h3>
+        <p>${x.s}</p>
+        ${x.link ? `<a href="${x.link}" target="_blank" class="btn-view">View Certificate ↗</a>` : ``}
+      </div>
+      <time>${x.d}</time>
+    </div>`).join("");
 
-  // contact buttons
-  // contact buttons
   $("#cb").innerHTML=[
     [SITE.email,"https://mail.google.com/mail/?view=cm&to="+SITE.email+"&su=Portfolio%20Inquiry",1],
     ["LinkedIn",SITE.linkedin],
@@ -598,7 +622,6 @@ function setLang(lang){
     [{en:"CV", ar:" السيرة الذاتية"}, "Nouf_Alharbi_Resume.pdf"]
   ].filter(x=>x[1]&&x[0]).map(x=>`<a class="btn${x[2]?" p":""}" href="${x[1]}" target="_blank" rel="noopener">${getPath(x[0],lang)||x[0]}</a>`).join("");
 
-  // projects
   window._full=SITE.projects.map(p=>{
     const tag=getPath(p.tag,lang),meta=getPath(p.meta,lang),problem=getPath(p.problem,lang),
           built=getPath(p.built,lang),result=getPath(p.result,lang),takeaway=getPath(p.takeaway,lang),
@@ -616,16 +639,13 @@ function setLang(lang){
   });
   renderCards(lang);
 
-  // re-observe for animation
   document.querySelectorAll(".rv").forEach(e=>io.observe(e));
 }
 
-// IntersectionObserver once
 const io=new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}
 }),{threshold:.12});
 
-// hover 3D on shots
 if(mot){
   document.addEventListener('mousemove',e=>{
     const el=e.target.closest('.shot');
@@ -640,16 +660,13 @@ if(mot){
   },true);
 }
 
-// project cards + details popup
 function renderCards(lang){
   $("#list").innerHTML=SITE.projects.map((p,i)=>{
     const st=getPath(p.stats,lang)[0];
     
-    // كود يبحث عن رابط GitHub
     const ghLink = p.links.find(l => l.url && l.url.toLowerCase().includes('github.com'));
     const ghBtn = ghLink ? `<a href="${ghLink.url}" target="_blank" rel="noopener" class="btn-github" onclick="event.stopPropagation()">GitHub ↗</a>` : ``;
 
-    // كود عرض أول 3 مهارات + الرقم المتبقي
     const maxChips = 3;
     const displayStack = p.stack.slice(0, maxChips).map(s=>`<span>${s}</span>`).join("");
     const remainingCount = p.stack.length - maxChips;
@@ -684,7 +701,6 @@ $("#dlg").addEventListener("click",e=>{if(e.target.id==="dlg")e.target.close()})
   setLang(saved);
 })();
 
-// Lightbox للصور
 function openLightbox(src){
   const lb=$("#lightbox");
   $("#lightbox-img").src=src;
