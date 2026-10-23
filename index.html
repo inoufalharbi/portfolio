@@ -49,6 +49,7 @@ const SITE={
    takeawayLabel:{en:"Takeaway",ar:"أهم ما تعلمته"},
    addShot:{en:"Add a screenshot",ar:"أضف صورة"},
    viewDetails:{en:"View details",ar:"شاهد التفاصيل"},
+   viewCert:{en:"View Certificate",ar:"عرض الشهادة"},
    close:{en:"Close",ar:"إغلاق"}},
  skills:{
    en:[
@@ -590,17 +591,16 @@ function setLang(lang){
       <div>
         <h3>${x.t}</h3>
         <p>${x.s}</p>
-        ${x.link ? `<a href="${x.link}" target="_blank" class="btn-view">View Certificate ↗</a>` : ``}
-      </div>
+${x.link ? `<a href="${x.link}" target="_blank" class="btn-view">${getPath(SITE.ui.viewCert,lang)} ↗</a>` : ``}      </div>
       <time>${x.d}</time>
     </div>`).join("");
 
-  $("#ce").innerHTML=getPath(SITE.certificates,lang).map(x=>`
+   $("#ce").innerHTML=getPath(SITE.certificates,lang).map(x=>`
     <div class="rv">
       <div>
         <h3>${x.t}</h3>
         <p>${x.s}</p>
-        ${x.link ? `<a href="${x.link}" target="_blank" class="btn-view">View Certificate ↗</a>` : ``}
+        ${x.link ? `<a href="${x.link}" target="_blank" class="btn-view">${getPath(SITE.ui.viewCert,lang)} ↗</a>` : ``}
       </div>
       <time>${x.d}</time>
     </div>`).join("");
@@ -610,7 +610,7 @@ function setLang(lang){
       <div>
         <h3>${x.t}</h3>
         <p>${x.s}</p>
-        ${x.link ? `<a href="${x.link}" target="_blank" class="btn-view">View Certificate ↗</a>` : ``}
+        ${x.link ? `<a href="${x.link}" target="_blank" class="btn-view">${getPath(SITE.ui.viewCert,lang)} ↗</a>` : ``}
       </div>
       <time>${x.d}</time>
     </div>`).join("");
