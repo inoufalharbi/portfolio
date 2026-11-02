@@ -80,10 +80,10 @@ const SITE={
     {t:"PCEP™: شهادة مبرمج Python للمستوى المبتدئ",s:"Python Institute",d:"07/2026", link:"pcep.pdf"}]},
  training:{
    en:[
-    {t:"Data Science Bootcamp",s:"WeCloudData · Saudi Digital Academy",d:"08/2026 – 09/2026"},
+    {t:"Data Science Bootcamp",s:"WeCloudData · Saudi Digital Academy",d:"08/2026 – 09/2026", link:"ds_bootcamp.pdf"},
     {t:"Software Development Bootcamp (Python)",s:"WeCloudData · Saudi Digital Academy",d:"05/2026 – 07/2026", link:"sd_bootcamp.pdf"}],
    ar:[
-    {t:"معسكر علم البيانات",s:"WeCloudData · الأكاديمية السعودية الرقمية",d:"08/2026 – 09/2026"},
+    {t:"معسكر علم البيانات",s:"WeCloudData · الأكاديمية السعودية الرقمية",d:"08/2026 – 09/2026", link:"ds_bootcamp.pdf"},
     {t:"معسكر تطوير البرمجيات (Python)",s:"WeCloudData · الأكاديمية السعودية الرقمية",d:"05/2026 – 07/2026", link:"sd_bootcamp.pdf"}]},
  projects:[
  {color:"#4F7BD8",name:"MORROW",
@@ -618,7 +618,6 @@ ${x.link ? `<a href="${x.link}" target="_blank" class="btn-view">${getPath(SITE.
   $("#cb").innerHTML=[
     [SITE.email,"https://mail.google.com/mail/?view=cm&to="+SITE.email+"&su=Portfolio%20Inquiry",1],
     ["LinkedIn",SITE.linkedin],
-    ["GitHub",SITE.github],
     [{en:"CV", ar:" السيرة الذاتية"}, "Nouf_Alharbi_Resume.pdf"]
   ].filter(x=>x[1]&&x[0]).map(x=>`<a class="btn${x[2]?" p":""}" href="${x[1]}" target="_blank" rel="noopener">${getPath(x[0],lang)||x[0]}</a>`).join("");
 
